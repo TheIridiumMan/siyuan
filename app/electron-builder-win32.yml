@@ -1,0 +1,31 @@
+appId: org.b3log.siyuan
+productName: SiYuan
+copyright: Copyright © 2019-present Yunnan Liandi Technology Co., Ltd.
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/
+directories:
+  output: build
+  buildResources: stage/build
+files:
+  - stage/build
+  - node_modules
+  - "!node_modules/@types"
+  - "!node_modules/webpack"
+  - "!node_modules/typescript"
+  - "!**/*.map"
+extraResources:
+  - from: ../kernel
+    to: kernel
+win:
+  target:
+    - target: nsis
+      arch:
+        - ia32
+  artifactName: "siyuan-${version}-win32.${ext}"
+  icon: stage/icon-large.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: SiYuan
