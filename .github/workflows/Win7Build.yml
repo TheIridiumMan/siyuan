@@ -13,7 +13,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: recursive
 
@@ -23,7 +23,7 @@ jobs:
         go-version: '1.19'  # Use Go version compatible with Win7
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '16'  # Node 16 has better Win7 support than newer versions
 
@@ -48,41 +48,41 @@ jobs:
         npm run dist-win32
 
     - name: Upload Go kernel executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-kernel-windows-386
         path: kernel/SiYuan-windows-386.exe
 
     - name: Upload Electron installer (if exists)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-installer-windows-ia32
         path: app/build/*.exe
       continue-on-error: true
 
     - name: Upload Electron portable (if exists)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-portable-windows-ia32
         path: app/build/*.zip
       continue-on-error: true
 
     - name: Upload Electron MSI (if exists)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-msi-windows-ia32
         path: app/build/*.msi
       continue-on-error: true
 
     - name: Upload Electron AppX (if exists)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-appx-windows-ia32
         path: app/build/*.appx
       continue-on-error: true
 
     - name: Upload any other build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: siyuan-other-artifacts
         path: |
