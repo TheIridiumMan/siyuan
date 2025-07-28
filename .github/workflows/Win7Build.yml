@@ -45,9 +45,7 @@ jobs:
       run: |
         cd app
         npm run build
-        npx electron-builder --win --ia32
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        npm run dist-win32
 
     - name: Upload Go kernel executable
       uses: actions/upload-artifact@v3
