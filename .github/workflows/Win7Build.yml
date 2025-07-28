@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-windows-7-32bit:
-    runs-on: windows-2019  # Using older Windows runner for better Win7 compatibility
+    runs-on: windows-latest
     
     steps:
     - name: Checkout code
